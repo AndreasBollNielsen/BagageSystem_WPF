@@ -171,6 +171,15 @@
 
                 </Border>
 
+                <Border Grid.Row="0" Grid.Column="1" x:Name="CheckIn2" BorderBrush="White"  BorderThickness="1"  Background="#FF0C4561" Margin="5,5,5,5" >
+                    <StackPanel>
+                        <Label x:Name="Checkin2_owner" Content="SAS" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"></Label>
+                        <Label  Content="Check In 2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"></Label>
+
+                    </StackPanel>
+
+                </Border>
+
             </Grid>
 
 

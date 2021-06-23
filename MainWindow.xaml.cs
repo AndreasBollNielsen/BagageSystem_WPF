@@ -40,13 +40,26 @@ namespace BagageSystem_WPF
                 if (e is LuggageCounterEventArgs)
                 {
                     Check_In check_In = (Check_In)sender;
-
-                    if(check_In.MyStatus == Check_In.Status.open)
+                    int selection = ((LuggageCounterEventArgs)e).LuggageCount;
+                    if (check_In.MyStatus == Check_In.Status.open)
                     {
-                        CheckIn1.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#1BA1E2");
+
+                        switch (selection)
+                        {
+                            case 0:
+                                CheckIn1.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#1BA1E2");
+                                break;
+                            case 1:
+                                CheckIn2.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#1BA1E2");
+                                break;
+                            default:
+                                break;
+                        }
+
+
+
                     }
 
-                   Checkin1_owner.Content = $"{((LuggageCounterEventArgs)e).LuggageCount}";
                 }
             });
         }
