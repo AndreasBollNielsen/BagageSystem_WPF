@@ -29,8 +29,6 @@ namespace BagageSystem_WPF
             Controller.luggageProducer.LuggageChanged += Controller_LuggageChanged;
             Controller.flightMan.TimeHandler += Flightman_TimeChanged;
             Controller.InitializationHandler += Initialize;
-
-
         }
 
         //update terminal flights info
@@ -40,15 +38,17 @@ namespace BagageSystem_WPF
             {
                 if (e is FlightPlanEventArgs)
                 {
+                    //Get index of child GUI
                     FlightPlanEventArgs flight = ((FlightPlanEventArgs)e);
                     int selection = flight.Index;
 
+                    //Get GUI object
                     TerminalUserControl terminalElement = (TerminalUserControl)Terminal_itemsControl.Items.GetItemAt(selection);
                     terminalElement.Status = flight.FlightStatus;
                     terminalElement.Gate = flight.GateName;
 
 
-                    //set color background
+                    //set color background & status
                     if (flight.FlightStatus == "Boarding")
                     {
                         terminalElement.BackGroundPropterty = (SolidColorBrush)new BrushConverter().ConvertFrom("#1BA1E2");
@@ -69,18 +69,16 @@ namespace BagageSystem_WPF
             {
                 if (e is GateEventArgs)
                 {
+                    //get GUI object
                     GateEventArgs Gate_obj = ((GateEventArgs)e);
                     int selection = Gate_obj.Index;
                     GateUserControl gate = (GateUserControl)Gates_grid.Children[selection];
 
-
+                    //set Gate GUI properties
                     if (Gate_obj.GateStatus == Gate.Status.open)
                     {
                         gate.SetBackgroundproperty = (SolidColorBrush)new BrushConverter().ConvertFrom("#1BA1E2");
                         gate.SetLuggageProperty = $"{Gate_obj.NumLuggage}/{Gate_obj.MaxLuggage}";
-
-
-
                     }
                     else
                     {
@@ -91,13 +89,14 @@ namespace BagageSystem_WPF
                 }
             });
         }
-
+       
+        // initialize events
         private void Initialize(object sender, EventArgs e)
         {
             //setup handlers
-            //subscribe Checkin eventhandlers
             for (int i = 0; i < Controller.flightMan.Checkinhandler.Length; i++)
             {
+                //add gate & check in events
                 Controller.flightMan.Checkinhandler[i] += Checkin_Changed;
                 Controller.flightMan.Gatehandler[i] += Gate_Changed;
 
@@ -125,6 +124,7 @@ namespace BagageSystem_WPF
             InitializeTerminal();
         }
 
+        // set name and color for new check in
         private void Checkin_Changed(object sender, EventArgs e)
         {
             Dispatcher.Invoke(() =>
@@ -182,7 +182,6 @@ namespace BagageSystem_WPF
                 Controller.RunSim();
                 StartSim_Text.Text = "Running";
                 StartSim.Background = Brushes.Red;
-
             }
             else
             {
@@ -204,11 +203,10 @@ namespace BagageSystem_WPF
                 lbl_TimeFactor.Content = $"Time Factor {value}";
                 Controller.flightMan.TimeFactor = value;
                 Controller.UpdateLocalTimeFactor();
-
             }
         }
 
-        //add new checkin
+        //add new check in
         private void AddCheckinButton(object sender, RoutedEventArgs e)
         {
             Controller.flightMan.OpenCheckIn();
@@ -233,7 +231,7 @@ namespace BagageSystem_WPF
 
 
             // Terminal_itemsControl.Items.SortDescriptions.Clear();
-            // Terminal_itemsControl.Items.SortDescriptions.Add(new System.ComponentModel.SortDescription("Arrival", System.ComponentModel.ListSortDirection.Ascending));
+           // Terminal_itemsControl.Items.SortDescriptions.Add(new System.ComponentModel.SortDescription("Arrival", System.ComponentModel.ListSortDirection.Ascending));
 
             //Debug.WriteLine(Manager.gates[0].GateName);
         }

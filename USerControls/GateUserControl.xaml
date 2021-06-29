@@ -18,15 +18,15 @@
                 <Border Grid.Row="0"   BorderBrush="White"  BorderThickness="2" CornerRadius="10" Margin="20,5,20,5" >
                     <Viewbox  Stretch="Uniform">
                         <StackPanel Orientation="Horizontal">
-                            <Label  Content="Gate" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="White"></Label>
-                            <Label x:Name="lbl_Name" Content="D10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="White"></Label>
+                            <Label  Content="Gate:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="White"></Label>
+                            <Label x:Name="lbl_Name" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="White"></Label>
                         </StackPanel>
                     </Viewbox>
                 </Border >
 
                 <Border Grid.Row="1"  x:Name="luggage" BorderBrush="White"  BorderThickness="2" CornerRadius="10"  Margin="5,5,5,5" >
                     <Viewbox  Stretch="Uniform">
-                        <Label x:Name="lbl_luggageCount" Content="10/50" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="White"></Label>
+                        <Label x:Name="lbl_luggageCount" Content="/" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="White"></Label>
                     </Viewbox>
                 </Border >
 
