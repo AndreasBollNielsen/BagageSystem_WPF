@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="BagageSystem_WPF.CheckinUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BagageSystem_WPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="60" d:DesignWidth="80">
+    <Grid>
+        <Border x:Name="border" BorderBrush="White" CornerRadius="4" BorderThickness="1"  Background="#FF0C4561">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0" BorderBrush="White" CornerRadius="4" BorderThickness="1"  Background="#FF0C4561" Margin="10,5,10,5">
+                    <Viewbox>
+                        <Label x:Name="lbl_airline" Content="SAS" Foreground="White"></Label>
+                    </Viewbox>
+                </Border>
+
+               
+                    <Viewbox Grid.Row="1">
+                        <Label x:Name="lbl_name" Content="CheckIn 1" Foreground="White"></Label>
+                    </Viewbox>
+               
+
+            </Grid>
+
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0" BlurRadius="10"></DropShadowEffect>
+            </Border.Effect>
+        </Border>
+    </Grid>
+</UserControl>

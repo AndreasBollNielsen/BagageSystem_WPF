@@ -5,14 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BagageSystem_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="#2A2A2A">
+        Title="MainWindow" Height="450" Width="800" Background="#FFBCE7FF">
     <Grid>
+
 
         <!--setting margin style-->
         <Grid.Resources>
             <Style TargetType="{x:Type Border}">
                 <Setter Property="Margin" Value="5,5,5,5"></Setter>
                 <Setter Property="CornerRadius" Value="10"></Setter>
+
             </Style>
             <Style TargetType="{x:Type Button}">
                 <Setter Property="Margin" Value="5,5,5,5"></Setter>
@@ -22,218 +24,265 @@
         <!--define grid row-->
         <Grid.RowDefinitions>
             <RowDefinition Height="90*"></RowDefinition>
-            <RowDefinition Height="200*"></RowDefinition>
+            <RowDefinition Height="250*"></RowDefinition>
             <RowDefinition Height="145*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <!--top grid-->
-        <Grid Grid.Row="0">
 
-            <!--vertical grid-->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="60*"></RowDefinition>
-                <RowDefinition Height="40*"></RowDefinition>
-            </Grid.RowDefinitions>
+        <Border BorderBrush="White"  BorderThickness="1"  Background="#FFA9C3D0">
+            <Grid Grid.Row="0">
 
-            <!--horizontal grid-->
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="25*"></ColumnDefinition>
-                <ColumnDefinition Width="25*"></ColumnDefinition>
-                <ColumnDefinition Width="25*"></ColumnDefinition>
-                <ColumnDefinition Width="25*"></ColumnDefinition>
-                <ColumnDefinition Width="25*"></ColumnDefinition>
-                <ColumnDefinition Width="25*"></ColumnDefinition>
-                <ColumnDefinition Width="20*"></ColumnDefinition>
-                <ColumnDefinition Width="30*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-
-            <!--timer grid-->
-            <Grid Grid.Row="0" Grid.Column="7" Grid.RowSpan="2">
-
+                <!--vertical grid-->
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="19*"></RowDefinition>
-                    <RowDefinition Height="11*"></RowDefinition>
-                    <RowDefinition Height="15*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <!--Timer label-->
-                <Border  x:Name="Timer" BorderBrush="Black"  BorderThickness="1"  Background="#FFB68080" Margin="5,5,5,5" >
-                    <StackPanel Orientation="Horizontal">
-                        <Label Name="Timer_label" Content="Time of day" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8"></Label>
-                        <Label Name="Timer_counter" Content="13:25" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8"></Label>
+                    <RowDefinition Height="60*"></RowDefinition>
 
-                    </StackPanel>
+                </Grid.RowDefinitions>
+
+                <!--horizontal grid-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80*"></ColumnDefinition>
+                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <!--Gates grid-->
+                <Grid x:Name="Gates_grid" Grid.Row="0" Grid.Column="0">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+
+                    <local:GateUserControl Grid.Row="0" Grid.Column="0" SetBackgroundproperty="#FF0C4561"/>
+                    <local:GateUserControl Grid.Row="0" Grid.Column="1" SetBackgroundproperty="#FF0C4561"/>
+                    <local:GateUserControl Grid.Row="0" Grid.Column="2" SetBackgroundproperty="#FF0C4561"/>
+                    <local:GateUserControl Grid.Row="0" Grid.Column="3" SetBackgroundproperty="#FF0C4561"/>
+                    <local:GateUserControl Grid.Row="0" Grid.Column="4" SetBackgroundproperty="#FF0C4561"/>
+                    <local:GateUserControl Grid.Row="0" Grid.Column="5" SetBackgroundproperty="#FF0C4561"/>
+                    <local:GateUserControl Grid.Row="0" Grid.Column="6" SetBackgroundproperty="#FF0C4561"/>
+                    <local:GateUserControl Grid.Row="0" Grid.Column="7" SetBackgroundproperty="#FF0C4561"/>
+                    <local:GateUserControl Grid.Row="0" Grid.Column="8" SetBackgroundproperty="#FF0C4561"/>
+                    <local:GateUserControl Grid.Row="0" Grid.Column="9" SetBackgroundproperty="#FF0C4561"/>
+
+
+
+                </Grid>
+
+
+                <!--timer grid-->
+                <Border Grid.Row="0" Grid.Column="1" BorderBrush="White"  BorderThickness="2"  Background="#FF25617F">
+
+                    <Grid>
+                        <!--grid definitions-->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="19*"></RowDefinition>
+                            <RowDefinition Height="20*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <!--Timer label-->
+                        <Border  x:Name="Timer" BorderBrush="White"  BorderThickness="1"  Background="#FFA9C3D0">
+                            <StackPanel Orientation="Horizontal">
+                                <Viewbox>
+                                    <Label Name="Timer_label" Content="Time of day" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Viewbox>
+
+                                <Viewbox>
+                                    <Label Name="Timer_counter" Content="13:25" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Viewbox>
+
+                            </StackPanel>
+                        </Border>
+
+                        <!--time factoir-->
+                        <Border Grid.Row="1" Grid.Column="0" BorderBrush="White"  BorderThickness="1" >
+                            <Viewbox  Stretch="Uniform">
+                                <Slider x:Name="Timer_slider"  VerticalAlignment="Center"  ValueChanged="TimeFactor_Changed" TickFrequency="8" Value="1" Maximum="50" Minimum="1" MinWidth="300"/>
+                            </Viewbox>
+                        </Border>
+
+                        <!--time factor label-->
+                        <Viewbox Grid.Row="2">
+                            <Label x:Name="lbl_TimeFactor"  Content="Time Factor 1" Margin="0,-8,0,0" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" Foreground="White"></Label >
+                        </Viewbox>
+                    </Grid>
+
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="0" BlurRadius="10"></DropShadowEffect>
+                    </Border.Effect>
                 </Border>
 
-                <Slider x:Name="Timer_slider" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Height="18" ValueChanged="TimeFactor_Changed" TickFrequency="8" Value="1" Maximum="50"/>
-                <Label x:Name="lbl_TimeFactor" Grid.Row="2" Content="Time Factor 1" Margin="0,-8,0,0" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" Foreground="White"></Label >
-
             </Grid>
-
-            <Border Grid.Row="0" Grid.Column="0" x:Name="gate1" BorderBrush="Black"  BorderThickness="1"  Background="#FFB68080" Margin="5,5,5,5" >
-                <Label Content="Gate1" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-            </Border>
-            <Border Grid.Row="1" Grid.Column="0" x:Name="Luggage1" BorderBrush="Black"  BorderThickness="1"  Background="#FFB68080" Margin="5,5,5,5" >
-                <Label Content="0/50" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8"></Label>
-
-
-
-            </Border>
-
-
-            <Border Grid.Row="0" Grid.Column="1" x:Name="gate2" BorderBrush="Black"  BorderThickness="1"  Background="#FFB68080" Margin="5,5,5,5" >
-                <Label Content="Gate1" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-            </Border>
-            <Border Grid.Row="1" Grid.Column="1" x:Name="Luggage2" BorderBrush="Black"  BorderThickness="1"  Background="#FFB68080" Margin="5,5,5,5" >
-                <Label Content="0/50" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8"></Label>
-
-            </Border>
-
-
-
-
-        </Grid>
+        </Border>
 
         <!--middle grid-->
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200*"></ColumnDefinition>
-                <!--<ColumnDefinition Width="200*"></ColumnDefinition>-->
-                <!--<ColumnDefinition Width="400*"></ColumnDefinition>-->
-            </Grid.ColumnDefinitions>
+        <Border Grid.Row="1" BorderBrush="White"  BorderThickness="1"  Background="#FFA9C3D0">
 
-            <Border  x:Name="terminal" BorderBrush="Black"  BorderThickness="1" CornerRadius="30" Background="#FFB68080" Margin="5,5,5,5" Width="600" >
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200*"></ColumnDefinition>
+                    <ColumnDefinition Width="600*"></ColumnDefinition>
+                    <ColumnDefinition Width="200*"></ColumnDefinition>
 
-                <ScrollViewer Margin="10,10,10,10">
-                    <StackPanel>
-                        <Button Height="40"></Button>
-                        <Button Height="40"></Button>
-                        <Button Height="40"></Button>
-                        <Button Height="40"></Button>
-                        <Button Height="40"></Button>
-                        <Button Height="40"></Button>
-                        <Button Height="40"></Button>
-                        <Button Height="40"></Button>
-                        <Button Height="40"></Button>
-                    </StackPanel>
-                </ScrollViewer>
 
-                <!--<Grid>
+                </Grid.ColumnDefinitions>
+
+                <!--Terminal border-->
+                <Border Grid.Column="1" x:Name="terminal" BorderBrush="White"  BorderThickness="2" CornerRadius="30" Background="#FFB68080" >
+                    <Grid Margin="0,5,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <local:TerminalUserControl Grid.Row="0" x:Name="Terminal_title" FlightNo="FlightNo" Margin="10,0,27,0"></local:TerminalUserControl>
+                        <ScrollViewer x:Name="Terminal" Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible" Margin="10,0,10,10">
+                            <ItemsControl x:Name="Terminal_itemsControl" ScrollViewer.HorizontalScrollBarVisibility="Auto" >
+                                <!--<local:TerminalUserControl FlightNo="A1042" Gate="B10" Destination="London" Arrival="15:15" Departure="16:30" Status="Boarding" BackGroundPropterty="#FF7A7A7A"></local:TerminalUserControl>-->
+                            </ItemsControl>
+
+                        </ScrollViewer>
+
+                    </Grid>
+
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="0" BlurRadius="10"></DropShadowEffect>
+                    </Border.Effect>
+
+                </Border>
+
+                <!--Terminal grid-->
+                <Grid Grid.Row="0">
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                </Grid>-->
+                </Grid>
 
-            </Border>
+            </Grid>
 
-            <!--Terminal grid-->
-            <Grid Grid.Row="0">
+        </Border>
+
+        <!--bottom grid-->
+        <Border Grid.Row="2" BorderBrush="White"  BorderThickness="1"  Background="#FFA9C3D0">
+
+
+            <Grid >
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
+
+                <!--Check in grid-->
+                <Grid x:Name="CheckInGrid" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <!--Check in-->
+                    <local:CheckinUserControl Grid.Column="0" NameProp="CheckIn 1"></local:CheckinUserControl>
+                    <local:CheckinUserControl Grid.Column="1" NameProp="CheckIn 2"></local:CheckinUserControl>
+                    <local:CheckinUserControl Grid.Column="2" NameProp="CheckIn 3"></local:CheckinUserControl>
+                    <local:CheckinUserControl Grid.Column="3" NameProp="CheckIn 4"></local:CheckinUserControl>
+                    <local:CheckinUserControl Grid.Column="4" NameProp="CheckIn 5"></local:CheckinUserControl>
+                    <local:CheckinUserControl Grid.Column="5" NameProp="CheckIn 6"></local:CheckinUserControl>
+                    <local:CheckinUserControl Grid.Column="6" NameProp="CheckIn 7"></local:CheckinUserControl>
+                    <local:CheckinUserControl Grid.Column="7" NameProp="CheckIn 8"></local:CheckinUserControl>
+                    <local:CheckinUserControl Grid.Column="8" NameProp="CheckIn 9"></local:CheckinUserControl>
+                    <local:CheckinUserControl Grid.Column="9" NameProp="CheckIn 10"></local:CheckinUserControl>
+
+                </Grid>
+
+
+
+
+                <!--interactive buttons grid-->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20*"></ColumnDefinition>
+                        <ColumnDefinition Width="20*"></ColumnDefinition>
+
+                        <ColumnDefinition Width="40*"></ColumnDefinition>
+                        <ColumnDefinition Width="60*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <!--Start sim button-->
+                    <Border Grid.Column="0" Margin="0,0,0,0">
+
+                        <Viewbox  Stretch="Fill" >
+
+                            <Button x:Name="StartSim"  Click="EnableDisableSim" Background="#FF515C8F" BorderBrush="White" FontSize="20" Height="60">
+                                <TextBlock x:Name="StartSim_Text" Text="Start Simulation" TextWrapping="Wrap" TextAlignment="Center" Foreground="White" Margin="5,5,5,5" FontSize="12"></TextBlock>
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="10"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </Viewbox>
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0" BlurRadius="10"></DropShadowEffect>
+                        </Border.Effect>
+                    </Border>
+
+
+
+
+
+                    <!--Add check ins button-->
+                    <Border Grid.Column="1" Margin="0,0,0,0">
+                        <Viewbox  Stretch="Fill">
+                            <Button  x:Name="CheckInButton" Background="#FF515C8F" BorderBrush="White" Click="AddCheckinButton" Height="60">
+                                <TextBlock Text="Add check In" TextWrapping="Wrap" TextAlignment="Center" Foreground="White"  Margin="5,5,5,5"></TextBlock>
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="10"/>
+                                    </Style>
+                                </Button.Resources>
+
+                            </Button>
+                        </Viewbox>
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0" BlurRadius="10"></DropShadowEffect>
+                        </Border.Effect>
+                    </Border>
+
+
+                    <!--Queue view-->
+                    <Viewbox Grid.Column="2" Stretch="Fill">
+                        <Border  x:Name="Queue" BorderBrush="White"  BorderThickness="1"  Background="#FF515C8F" Height="60">
+                            <TextBlock x:Name="Queue_text" Text="In queue for check In 0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="5,5,5,5"></TextBlock>
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="0" BlurRadius="10"></DropShadowEffect>
+                            </Border.Effect>
+                        </Border>
+                    </Viewbox>
+
+
+
+
+                </Grid>
+
             </Grid>
-
-        </Grid>
-
-        <!--bottom grid-->
-        <Grid Grid.Row="2">
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-
-            </Grid.RowDefinitions>
-
-            <!--gates grid-->
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-
-                <Border Grid.Row="0" Grid.Column="0" x:Name="CheckIn1" BorderBrush="White"  BorderThickness="1"  Background="#FF0C4561" Margin="5,5,5,5" >
-                    <StackPanel>
-                        <Label x:Name="Checkin1_owner" Content="SAS" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"></Label>
-                        <Label  Content="Check In 1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"></Label>
-
-                    </StackPanel>
-
-                </Border>
-
-                <Border Grid.Row="0" Grid.Column="1" x:Name="CheckIn2" BorderBrush="White"  BorderThickness="1"  Background="#FF0C4561" Margin="5,5,5,5" >
-                    <StackPanel>
-                        <Label x:Name="Checkin2_owner" Content="SAS" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"></Label>
-                        <Label  Content="Check In 2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"></Label>
-
-                    </StackPanel>
-
-                </Border>
-
-            </Grid>
-
-
-
-
-            <!--interactive buttons grid-->
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="20*"></ColumnDefinition>
-                    <ColumnDefinition Width="20*"></ColumnDefinition>
-                    <ColumnDefinition Width="30*"></ColumnDefinition>
-                    <ColumnDefinition Width="40*"></ColumnDefinition>
-                    <ColumnDefinition Width="60*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-
-                <Button Grid.Column="0" x:Name="StartSim"  Margin="5,5,5,5" Click="EnableDisableSim" Background="#FF515C8F" BorderBrush="White">
-                    <TextBlock x:Name="StartSim_Text" Text="Start Simulation" TextWrapping="Wrap" TextAlignment="Center" Foreground="White"></TextBlock>
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"/>
-                        </Style>
-                    </Button.Resources>
-                </Button>
-
-                <Button Grid.Column="1" x:Name="CheckInButton" Margin="5,5,5,5" Background="#FF515C8F" BorderBrush="White">
-                    <TextBlock Text="Add check In" TextWrapping="Wrap" TextAlignment="Center" Foreground="White"></TextBlock>
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"/>
-                        </Style>
-                    </Button.Resources>
-                </Button>
-
-                <Button Grid.Column="2" x:Name="LuggageSpeed"  Margin="5,5,5,5" Foreground="Black" Background="#FF515C8F" BorderBrush="White">
-                    <TextBlock Text="Increase Luggage Speed" TextWrapping="Wrap" TextAlignment="Center" Foreground="White"></TextBlock>
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"/>
-                        </Style>
-                    </Button.Resources>
-                </Button>
-
-                <Border Grid.Column="3" x:Name="Queue" BorderBrush="White"  BorderThickness="1"  Background="#FF515C8F" Margin="5,5,5,5">
-                    <TextBlock x:Name="Queue_text" Text="In queue for check In 0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" Foreground="White"></TextBlock>
-
-                </Border>
-
-
-
-
-
-            </Grid>
-
-        </Grid>
-
+        </Border>
     </Grid>
 </Window>

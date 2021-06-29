@@ -8,16 +8,20 @@
 
   <ItemGroup>
     <Compile Include="..\BagageSorteringssystem\Check-In.cs" Link="Check-In.cs" />
+    <Compile Include="..\BagageSorteringssystem\CheckInChangedEventArgs.cs" Link="CheckInChangedEventArgs.cs" />
     <Compile Include="..\BagageSorteringssystem\ConsoleManager.cs" Link="ConsoleManager.cs" />
     <Compile Include="..\BagageSorteringssystem\FlightManager.cs" Link="FlightManager.cs" />
     <Compile Include="..\BagageSorteringssystem\FlightPlan.cs" Link="FlightPlan.cs" />
+    <Compile Include="..\BagageSorteringssystem\FlightPlanEventArgs.cs" Link="FlightPlanEventArgs.cs" />
     <Compile Include="..\BagageSorteringssystem\Gate.cs" Link="Gate.cs" />
+    <Compile Include="..\BagageSorteringssystem\GateEventArgs.cs" Link="GateEventArgs.cs" />
     <Compile Include="..\BagageSorteringssystem\Luggage.cs" Link="Luggage.cs" />
+    <Compile Include="..\BagageSorteringssystem\LuggageCounterEventArgs.cs" Link="LuggageCounterEventArgs.cs" />
     <Compile Include="..\BagageSorteringssystem\LuggageProducer.cs" Link="LuggageProducer.cs" />
     <Compile Include="..\BagageSorteringssystem\Manager.cs" Link="Manager.cs" />
-    <Compile Include="..\BagageSorteringssystem\Program.cs" Link="Program.cs" />
     <Compile Include="..\BagageSorteringssystem\Queue.cs" Link="Queue.cs" />
     <Compile Include="..\BagageSorteringssystem\Sorter.cs" Link="Sorter.cs" />
+    <Compile Include="..\BagageSorteringssystem\TimeChangedEvent.cs" Link="TimeChangedEvent.cs" />
   </ItemGroup>
 
 </Project>
