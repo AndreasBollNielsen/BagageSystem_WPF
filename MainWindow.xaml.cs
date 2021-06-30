@@ -26,8 +26,8 @@ namespace BagageSystem_WPF
         {
             InitializeComponent();
             Controller = new Manager();
-            Controller.luggageProducer.LuggageChanged += Controller_LuggageChanged;
-            Controller.flightMan.TimeHandler += Flightman_TimeChanged;
+            Controller.LuggageProducer.LuggageChanged += Controller_LuggageChanged;
+            Controller.FlightMan.TimeHandler += Flightman_TimeChanged;
             Controller.InitializationHandler += Initialize;
         }
 
@@ -94,14 +94,14 @@ namespace BagageSystem_WPF
         private void Initialize(object sender, EventArgs e)
         {
             //setup handlers
-            for (int i = 0; i < Controller.flightMan.Checkinhandler.Length; i++)
+            for (int i = 0; i < Controller.FlightMan.Checkinhandler.Length; i++)
             {
                 //add gate & check in events
-                Controller.flightMan.Checkinhandler[i] += Checkin_Changed;
-                Controller.flightMan.Gatehandler[i] += Gate_Changed;
+                Controller.FlightMan.Checkinhandler[i] += Checkin_Changed;
+                Controller.FlightMan.Gatehandler[i] += Gate_Changed;
 
                 //add flightplan events
-                Controller.flightMan.FlightHandler[i] += Flight_Changed;
+                Controller.FlightMan.FlightHandler[i] += Flight_Changed;
 
                 //add luggage events
                 Manager.gates[i].luggageHandler += Gate_Changed;
@@ -186,7 +186,7 @@ namespace BagageSystem_WPF
             else
             {
                 Controller.Isrunning = false;
-                Controller.flightMan.IsRunning = false;
+                Controller.FlightMan.IsRunning = false;
                 StartSim_Text.Text = "Start Simulation";
                 StartSim.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#515C8F");
             }
@@ -201,7 +201,7 @@ namespace BagageSystem_WPF
             if (Controller != null)
             {
                 lbl_TimeFactor.Content = $"Time Factor {value}";
-                Controller.flightMan.TimeFactor = value;
+                Controller.FlightMan.TimeFactor = value;
                 Controller.UpdateLocalTimeFactor();
             }
         }
@@ -209,7 +209,7 @@ namespace BagageSystem_WPF
         //add new check in
         private void AddCheckinButton(object sender, RoutedEventArgs e)
         {
-            Controller.flightMan.OpenCheckIn();
+            Controller.FlightMan.OpenCheckIn();
         }
 
         //gets data from Manager and adds it to the terminal
